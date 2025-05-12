@@ -1,0 +1,30 @@
+p {
+  margin: 0;
+}
+
+.typing .dots::after {
+  content: '';
+  display: inline-block;
+  width: 1em;
+  animation: blink 1s infinite steps(1);
+}
+
+@keyframes blink {
+
+  0%,
+  20% {
+    content: '.';
+  }
+
+  40% {
+    content: '..';
+  }
+
+  60% {
+    content: '...';
+  }
+
+  100% {
+    content: '';
+  }
+}
