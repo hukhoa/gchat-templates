@@ -6,6 +6,7 @@ import ReactMarkdown from "react-markdown";
 
 // Add your Google API key here
 const genAI = new GoogleGenerativeAI(process.env.REACT_APP_API_KEY);
+const prompt = process.env.REACT_APP_PROMPT;
 
 function App() {
   const [messages, setMessages] = useState([
@@ -29,7 +30,7 @@ function App() {
         model: process.env.REACT_APP_MODEL,
       });
 
-      const result = await model.generateContent(input);
+      const result = await model.generateContent(prompt + input);
       const response = await result.response;
       const text = await response.text();
 
